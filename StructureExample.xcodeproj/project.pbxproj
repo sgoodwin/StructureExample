@@ -18,6 +18,8 @@
 		9B79426022B3BF8C0002C95F /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B79425F22B3BF8C0002C95F /* Launch.storyboard */; };
 		9B79426222B3C0340002C95F /* AuthParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B79426122B3C0340002C95F /* AuthParentViewController.swift */; };
 		9B79426422B3C7170002C95F /* AuthFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B79426322B3C7170002C95F /* AuthFlow.swift */; };
+		9B79426622B3CCE30002C95F /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B79426522B3CCE30002C95F /* UserManager.swift */; };
+		9B79426822B3CCF70002C95F /* FakeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B79426722B3CCF70002C95F /* FakeAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		9B79425F22B3BF8C0002C95F /* Launch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
 		9B79426122B3C0340002C95F /* AuthParentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthParentViewController.swift; sourceTree = "<group>"; };
 		9B79426322B3C7170002C95F /* AuthFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthFlow.swift; sourceTree = "<group>"; };
+		9B79426522B3CCE30002C95F /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		9B79426722B3CCF70002C95F /* FakeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,8 @@
 		9B79422E22B3BE610002C95F /* StructureExample */ = {
 			isa = PBXGroup;
 			children = (
+				9B79426722B3CCF70002C95F /* FakeAPI.swift */,
+				9B79426522B3CCE30002C95F /* UserManager.swift */,
 				9B79422F22B3BE610002C95F /* AppDelegate.swift */,
 				9B79423122B3BE610002C95F /* FirstViewController.swift */,
 				9B79423322B3BE610002C95F /* SecondViewController.swift */,
@@ -269,11 +275,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B79426622B3CCE30002C95F /* UserManager.swift in Sources */,
 				9B79426222B3C0340002C95F /* AuthParentViewController.swift in Sources */,
 				9B79423422B3BE610002C95F /* SecondViewController.swift in Sources */,
 				9B79423022B3BE610002C95F /* AppDelegate.swift in Sources */,
 				9B79423222B3BE610002C95F /* FirstViewController.swift in Sources */,
 				9B79426422B3C7170002C95F /* AuthFlow.swift in Sources */,
+				9B79426822B3CCF70002C95F /* FakeAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

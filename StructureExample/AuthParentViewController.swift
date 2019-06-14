@@ -28,19 +28,21 @@ class AuthParentViewController: UIViewController {
     }()
     
     func updateChildForStatus() {
-        let controller: UIViewController?
-        
+        if let controller = controllerFor(status: status) {
+            UIView.animate(withDuration: 0.3) {
+                self.embedFullViewChild(controller)
+            }
+        }
+    }
+    
+    private func controllerFor(status: Status) -> UIViewController? {
         switch status {
         case .determining:
-            controller = storyboard?.instantiateViewController(withIdentifier: "splash")
+            return storyboard?.instantiateViewController(withIdentifier: "splash")
         case .loggedIn:
-            controller = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
+            return UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
         case .loggedOut:
-            controller = authFlow.initialController()
-        }
-        
-        if let controller = controller {
-            embedFullViewChild(controller)
+            return authFlow.initialController()
         }
     }
     
