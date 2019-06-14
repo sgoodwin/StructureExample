@@ -17,6 +17,7 @@
 		9B79425222B3BE630002C95F /* StructureExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B79425122B3BE630002C95F /* StructureExampleUITests.swift */; };
 		9B79426022B3BF8C0002C95F /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B79425F22B3BF8C0002C95F /* Launch.storyboard */; };
 		9B79426222B3C0340002C95F /* AuthParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B79426122B3C0340002C95F /* AuthParentViewController.swift */; };
+		9B79426422B3C7170002C95F /* AuthFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B79426322B3C7170002C95F /* AuthFlow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		9B79425322B3BE630002C95F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B79425F22B3BF8C0002C95F /* Launch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
 		9B79426122B3C0340002C95F /* AuthParentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthParentViewController.swift; sourceTree = "<group>"; };
+		9B79426322B3C7170002C95F /* AuthFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthFlow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				9B79423D22B3BE630002C95F /* Info.plist */,
 				9B79425F22B3BF8C0002C95F /* Launch.storyboard */,
 				9B79426122B3C0340002C95F /* AuthParentViewController.swift */,
+				9B79426322B3C7170002C95F /* AuthFlow.swift */,
 			);
 			path = StructureExample;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				9B79423422B3BE610002C95F /* SecondViewController.swift in Sources */,
 				9B79423022B3BE610002C95F /* AppDelegate.swift in Sources */,
 				9B79423222B3BE610002C95F /* FirstViewController.swift in Sources */,
+				9B79426422B3C7170002C95F /* AuthFlow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
