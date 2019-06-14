@@ -15,6 +15,8 @@
 		9B79423C22B3BE630002C95F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B79423A22B3BE630002C95F /* LaunchScreen.storyboard */; };
 		9B79424722B3BE630002C95F /* StructureExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B79424622B3BE630002C95F /* StructureExampleTests.swift */; };
 		9B79425222B3BE630002C95F /* StructureExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B79425122B3BE630002C95F /* StructureExampleUITests.swift */; };
+		9B79426022B3BF8C0002C95F /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B79425F22B3BF8C0002C95F /* Launch.storyboard */; };
+		9B79426222B3C0340002C95F /* AuthParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B79426122B3C0340002C95F /* AuthParentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		9B79424D22B3BE630002C95F /* StructureExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StructureExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B79425122B3BE630002C95F /* StructureExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructureExampleUITests.swift; sourceTree = "<group>"; };
 		9B79425322B3BE630002C95F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9B79425F22B3BF8C0002C95F /* Launch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
+		9B79426122B3C0340002C95F /* AuthParentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthParentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,8 @@
 				9B79423822B3BE630002C95F /* Assets.xcassets */,
 				9B79423A22B3BE630002C95F /* LaunchScreen.storyboard */,
 				9B79423D22B3BE630002C95F /* Info.plist */,
+				9B79425F22B3BF8C0002C95F /* Launch.storyboard */,
+				9B79426122B3C0340002C95F /* AuthParentViewController.swift */,
 			);
 			path = StructureExample;
 			sourceTree = "<group>";
@@ -235,6 +241,7 @@
 				9B79423C22B3BE630002C95F /* LaunchScreen.storyboard in Resources */,
 				9B79423922B3BE630002C95F /* Assets.xcassets in Resources */,
 				9B79423722B3BE610002C95F /* Main.storyboard in Resources */,
+				9B79426022B3BF8C0002C95F /* Launch.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +266,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B79426222B3C0340002C95F /* AuthParentViewController.swift in Sources */,
 				9B79423422B3BE610002C95F /* SecondViewController.swift in Sources */,
 				9B79423022B3BE610002C95F /* AppDelegate.swift in Sources */,
 				9B79423222B3BE610002C95F /* FirstViewController.swift in Sources */,
