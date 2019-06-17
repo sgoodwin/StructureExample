@@ -29,5 +29,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
+    
+    @IBAction func logout(_ sender: AnyObject) {
+        userManager.logout { [weak self] in
+            let controller = self?.window?.rootViewController as! AuthParentViewController
+            controller.status = .loggedOut
+        }
+    }
 }
 

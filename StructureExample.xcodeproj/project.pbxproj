@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B6BDE4B22B7929A007C0C52 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B6BDE4A22B7929A007C0C52 /* Auth.storyboard */; };
+		9B6BDE4D22B79354007C0C52 /* EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6BDE4C22B79354007C0C52 /* EmailViewController.swift */; };
 		9B79423022B3BE610002C95F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B79422F22B3BE610002C95F /* AppDelegate.swift */; };
 		9B79423222B3BE610002C95F /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B79423122B3BE610002C95F /* FirstViewController.swift */; };
 		9B79423422B3BE610002C95F /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B79423322B3BE610002C95F /* SecondViewController.swift */; };
@@ -40,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9B6BDE4A22B7929A007C0C52 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
+		9B6BDE4C22B79354007C0C52 /* EmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewController.swift; sourceTree = "<group>"; };
 		9B79422C22B3BE610002C95F /* StructureExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StructureExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B79422F22B3BE610002C95F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B79423122B3BE610002C95F /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +125,8 @@
 				9B79425F22B3BF8C0002C95F /* Launch.storyboard */,
 				9B79426122B3C0340002C95F /* AuthParentViewController.swift */,
 				9B79426322B3C7170002C95F /* AuthFlow.swift */,
+				9B6BDE4A22B7929A007C0C52 /* Auth.storyboard */,
+				9B6BDE4C22B79354007C0C52 /* EmailViewController.swift */,
 			);
 			path = StructureExample;
 			sourceTree = "<group>";
@@ -249,6 +255,7 @@
 			files = (
 				9B79423C22B3BE630002C95F /* LaunchScreen.storyboard in Resources */,
 				9B79423922B3BE630002C95F /* Assets.xcassets in Resources */,
+				9B6BDE4B22B7929A007C0C52 /* Auth.storyboard in Resources */,
 				9B79423722B3BE610002C95F /* Main.storyboard in Resources */,
 				9B79426022B3BF8C0002C95F /* Launch.storyboard in Resources */,
 			);
@@ -278,6 +285,7 @@
 				9B79426622B3CCE30002C95F /* UserManager.swift in Sources */,
 				9B79426222B3C0340002C95F /* AuthParentViewController.swift in Sources */,
 				9B79423422B3BE610002C95F /* SecondViewController.swift in Sources */,
+				9B6BDE4D22B79354007C0C52 /* EmailViewController.swift in Sources */,
 				9B79423022B3BE610002C95F /* AppDelegate.swift in Sources */,
 				9B79423222B3BE610002C95F /* FirstViewController.swift in Sources */,
 				9B79426422B3C7170002C95F /* AuthFlow.swift in Sources */,

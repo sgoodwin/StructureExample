@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct AuthFlow {
+class AuthFlow {
     let storyboard = UIStoryboard(name: "Auth", bundle: nil)
     
     enum Stage {
@@ -21,7 +21,49 @@ struct AuthFlow {
         case done // user is ready to party
     }
     
-    func initialController() -> UIViewController? {
-        return storyboard.instantiateInitialViewController()
+    var stage: Stage {
+        didSet {
+            self.updateFor(stage: stage)
+        }
+    }
+    
+    let root: UINavigationController
+    
+    init(root: UINavigationController) {
+        self.root = root
+        self.stage = .email
+        updateFor(stage: .email)
+    }
+    
+    private func updateFor(stage: Stage) {
+        guard let next = controllerForStage(self.stage) else { return }
+        root.setViewControllers([next], animated: false)
+    }
+    
+    private func controllerForStage(_ stage: Stage) -> UIViewController? {
+        switch stage {
+        case .email:
+            let controller = storyboard.instantiateViewController(withIdentifier: "email") as! EmailViewController
+            controller.delegate = self
+            return controller
+        case .password:
+            let controller = storyboard.instantiateViewController(withIdentifier: "password") as! PasswordViewController
+            controller.delegate = self
+            return controller
+        default:
+            return nil // Don't worry about the other steps for now. Let's say signup isn't possible because we're lazy.
+        }
+    }
+}
+
+extension AuthFlow: EmailViewDelegate {
+    func controllerDidReceieve(email: String) {
+        stage = .password
+    }
+}
+
+extension AuthFlow: PasswordViewDelegate {
+    func controllerDidReceieve(password: String) {
+        stage = .done
     }
 }

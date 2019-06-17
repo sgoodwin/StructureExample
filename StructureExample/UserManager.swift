@@ -20,4 +20,8 @@ struct UserManager {
     func currentUser(completion: @escaping (User?) -> ()) {
         api.fetchCurrentUser(completion: completion)
     }
+    
+    func logout(completion: @escaping () -> ()) {
+        api.logout(completion: completion)
+    }
 }

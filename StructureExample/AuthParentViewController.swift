@@ -24,7 +24,7 @@ class AuthParentViewController: UIViewController {
     }
     
     lazy var authFlow: AuthFlow = {
-        return AuthFlow()
+        return AuthFlow(root: UINavigationController())
     }()
     
     func updateChildForStatus() {
@@ -42,7 +42,7 @@ class AuthParentViewController: UIViewController {
         case .loggedIn:
             return UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
         case .loggedOut:
-            return authFlow.initialController()
+            return authFlow.root
         }
     }
     
