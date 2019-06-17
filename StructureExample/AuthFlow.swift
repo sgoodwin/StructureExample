@@ -12,18 +12,37 @@ protocol AuthFlowDelegate: class {
     func flowDidFinish(_ flow: AuthFlow)
 }
 
+enum Stage: Equatable {
+    // An arbitrary reprentation of the user's flow.
+    // Some steps may be skipped depending on what we know about the user.
+    case email // user needs to enter an email
+    case password(enteredEmail: String) // user needs to enter a password
+    case setPassword // user is new and needs to set a password
+    case setPhoto // user is new and needs to set a photo
+    case done // user is ready to party
+}
+
+struct StageDecider {
+    // The various conditions we use to decide which stage.
+    var email: String?
+    var password: String?
+    
+    func next() -> Stage {
+        guard let email = email else {
+            return .email
+        }
+        guard let _ = password else {
+            return .password(enteredEmail: email)
+        }
+        
+        // If we have both email and password, we're done.
+        return .done
+    }
+}
+
 class AuthFlow {
     let storyboard = UIStoryboard(name: "Auth", bundle: nil)
-    
-    enum Stage: Equatable {
-        // An arbitrary reprentation of the user's flow.
-        // Some steps may be skipped depending on what we know about the user.
-        case email // user needs to enter an email
-        case password(enteredEmail: String) // user needs to enter a password
-        case setPassword // user is new and needs to set a password
-        case setPhoto // user is new and needs to set a photo
-        case done // user is ready to party
-    }
+    var stageDecider = StageDecider()
     
     var stage: Stage {
         didSet {
@@ -42,13 +61,21 @@ class AuthFlow {
         self.root = root
         self.userManager = userManager
         self.delegate = delegate
-        self.stage = .email
-        updateFor(stage: .email)
+        self.stage = stageDecider.next()
+        updateFor(stage: stage)
     }
     
     private func updateFor(stage: Stage) {
         guard let next = controllerForStage(self.stage) else { return }
-        root.setViewControllers([next], animated: false)
+        
+        switch self.stage {
+        case .email:
+            root.setViewControllers([next], animated: false)
+        default:
+            // Only want a hard transition for the first step.
+            // This allows "back" movement and such.
+            root.pushViewController(next, animated: true)
+        }
     }
     
     private func controllerForStage(_ stage: Stage) -> UIViewController? {
@@ -71,7 +98,8 @@ extension AuthFlow: EmailViewDelegate {
     func controllerDidReceieve(email: String) {
         userManager.checkEmailForLogin(email: email) { (success) in
             if success {
-                self.stage = .password(enteredEmail: email)
+                self.stageDecider.email = email
+                self.stage = self.stageDecider.next()
             }
         }
     }
@@ -85,7 +113,8 @@ extension AuthFlow: PasswordViewDelegate {
         
         userManager.checkPasswordForLogin(email: enteredEmail, password: password) { (success) in
             if success {
-                self.stage = .done
+                self.stageDecider.password = password
+                self.stage = self.stageDecider.next()
             }
         }
     }

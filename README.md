@@ -11,7 +11,7 @@ If you're from the server team and need to correct a header or rename a field in
 
 ### 2. Additional login/signup steps.
 
-The entire login/signup process is handled by `AuthFlow.swift`. Any logic about which order steps should go in and which steps can be skipped goes here. Right now login is only two steps and registration is un-implemented, but if there were more steps to support, I would add a `StageDecider` type object which would be responsible for deciding the appropriate step based on input. This would be easy to test to make sure the user sees the right step depending on the user's context.
+The entire login/signup process is handled by `AuthFlow.swift`. Any logic about which order steps should go in and which steps can be skipped goes here. Right now login is only two steps and registration is un-implemented. The `StageDecider` object is responsible for deciding the appropriate step based on context. This would be easy to test to make sure the user sees the right step depending on the user's context.
 
 ### 3. Main app UI
 
