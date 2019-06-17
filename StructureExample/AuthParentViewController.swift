@@ -15,6 +15,18 @@ class AuthParentViewController: UIViewController {
         case loggedOut
     }
     
+    var userManager: UserManager! {
+        didSet {
+            userManager.currentUser { [weak self] (user) in
+                if user != nil {
+                    self?.status = .loggedIn
+                } else {
+                    self?.status = .loggedOut
+                }
+            }
+        }
+    }
+    
     var status: Status = .determining {
         didSet {
             DispatchQueue.main.async { [weak self] in
@@ -24,7 +36,7 @@ class AuthParentViewController: UIViewController {
     }
     
     lazy var authFlow: AuthFlow = {
-        return AuthFlow(root: UINavigationController())
+        return AuthFlow(root: UINavigationController(), userManager: self.userManager, delegate: self)
     }()
     
     func updateChildForStatus() {
@@ -51,6 +63,12 @@ class AuthParentViewController: UIViewController {
         
         updateChildForStatus()
     }
+}
+
+extension AuthParentViewController: AuthFlowDelegate {
+    func flowDidFinish(_ flow: AuthFlow) {
+        self.status = .loggedIn
+    }    
 }
 
 extension UIViewController {

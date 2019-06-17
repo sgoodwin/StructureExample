@@ -32,7 +32,7 @@ class PasswordViewController: UIViewController {
     
     @IBAction func submit(sender: UITextField) {
         // Pretend we login by verifying password as they type. Right now just make it long enough.
-        if let text = sender.text, text.count > 6 {
+        if let text = sender.text, text.count > 8 {
             delegate?.controllerDidReceieve(password: text)
         }
     }

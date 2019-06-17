@@ -8,14 +8,18 @@
 
 import UIKit
 
+protocol AuthFlowDelegate: class {
+    func flowDidFinish(_ flow: AuthFlow)
+}
+
 class AuthFlow {
     let storyboard = UIStoryboard(name: "Auth", bundle: nil)
     
-    enum Stage {
+    enum Stage: Equatable {
         // An arbitrary reprentation of the user's flow.
         // Some steps may be skipped depending on what we know about the user.
         case email // user needs to enter an email
-        case password // user needs to enter a password
+        case password(enteredEmail: String) // user needs to enter a password
         case setPassword // user is new and needs to set a password
         case setPhoto // user is new and needs to set a photo
         case done // user is ready to party
@@ -24,13 +28,20 @@ class AuthFlow {
     var stage: Stage {
         didSet {
             self.updateFor(stage: stage)
+            if stage == .done {
+                self.delegate?.flowDidFinish(self)
+            }
         }
     }
     
     let root: UINavigationController
+    let userManager: UserManager
+    weak var delegate: AuthFlowDelegate?
     
-    init(root: UINavigationController) {
+    init(root: UINavigationController, userManager: UserManager, delegate: AuthFlowDelegate?) {
         self.root = root
+        self.userManager = userManager
+        self.delegate = delegate
         self.stage = .email
         updateFor(stage: .email)
     }
@@ -58,12 +69,24 @@ class AuthFlow {
 
 extension AuthFlow: EmailViewDelegate {
     func controllerDidReceieve(email: String) {
-        stage = .password
+        userManager.checkEmailForLogin(email: email) { (success) in
+            if success {
+                self.stage = .password(enteredEmail: email)
+            }
+        }
     }
 }
 
 extension AuthFlow: PasswordViewDelegate {
     func controllerDidReceieve(password: String) {
-        stage = .done
+        guard case .password(let enteredEmail) = stage else {
+            return
+        }
+        
+        userManager.checkPasswordForLogin(email: enteredEmail, password: password) { (success) in
+            if success {
+                self.stage = .done
+            }
+        }
     }
 }

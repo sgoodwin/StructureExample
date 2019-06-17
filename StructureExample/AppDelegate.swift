@@ -19,13 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         let controller = window?.rootViewController as! AuthParentViewController
-        userManager.currentUser { (user) in
-            if user != nil {
-                controller.status = .loggedIn
-            } else {
-                controller.status = .loggedOut
-            }
-        }
+        controller.userManager = userManager
         
         return true
     }

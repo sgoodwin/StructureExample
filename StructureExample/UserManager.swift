@@ -24,4 +24,16 @@ struct UserManager {
     func logout(completion: @escaping () -> ()) {
         api.logout(completion: completion)
     }
+    
+    func checkEmailForLogin(email: String, completion: @escaping (Bool) -> ()) {
+        DispatchQueue.main.async {
+            completion( email.count > 8 )
+        }
+    }
+    
+    func checkPasswordForLogin(email: String, password: String, completion: @escaping (Bool) -> ()) {
+        DispatchQueue.main.async {
+            completion( email.count > 8 && password.count > 8 )
+        }
+    }
 }
